@@ -519,7 +519,7 @@ main {
   height: 90px;
   border-radius: 50%;
   border: none;
-  background: var(--c-red);
+  background: #e84c3d !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1347,8 +1347,8 @@ main {
   padding: 15px;
   border-radius: 0;
   border: none;
-  border-left: 4px solid var(--c-red);
-  background: var(--c-black);
+  border-left: 4px solid #e84c3d !important;
+  background: #1a1a1a !important;
   color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -1564,9 +1564,9 @@ main {
 }
 
 .dict-sort-btn.active {
-  background: var(--c-black);
-  border-color: var(--c-black);
-  color: #fff;
+  background: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+  color: #fff !important;
 }
 
 /* Group headers */

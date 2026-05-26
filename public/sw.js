@@ -14,6 +14,11 @@ self.addEventListener('activate', event => {
     caches.keys()
       .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
+      .then(() =>
+        // Force all open tabs to reload so they pick up the new HTML/CSS
+        self.clients.matchAll({ type: 'window', includeUncontrolled: true })
+          .then(clients => clients.forEach(client => client.navigate(client.url)))
+      )
   )
 })
 
