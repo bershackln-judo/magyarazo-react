@@ -2129,7 +2129,11 @@ nav {
   white-space: nowrap;
 }
 
-/* ── Grammar screen ── */
+/* ══════════════════════════════════════════════
+   GRAMMAR SCREEN — Bauhaus redesign
+   ══════════════════════════════════════════════ */
+
+/* ── Screen shell ── */
 #screen-grammar {
   align-items: stretch;
   justify-content: flex-start;
@@ -2137,112 +2141,170 @@ nav {
 }
 
 .grammar-header {
-  padding: 20px 16px 14px;
+  padding: 16px 16px 14px;
   flex-shrink: 0;
-  border-bottom: 2px solid var(--c-black);
+  border-bottom: 2px solid #1a1a1a;
 }
 
 .grammar-header h1 {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--graphite);
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: -0.2px;
+  line-height: 1;
+}
+
+.grammar-subtitle {
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 4px;
+  letter-spacing: 0.3px;
 }
 
 .grammar-body {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 12px 12px 80px;
+  padding: 10px 10px 80px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* ── Grammar sections ── */
-.gram-section {}
-
+/* ── Section label (Bauhaus: plain uppercase text) ── */
 .gram-section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 12px;
-  border-radius: 8px 8px 0 0;
+  padding: 0 2px 6px;
+  background: transparent;
 }
 
 .gram-section-title {
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #fff;
+  color: #888;
 }
 
 .gram-section-badge {
-  background: rgba(255,255,255,0.22);
-  color: #fff;
-  font-size: 10px;
+  background: #ece9e3;
+  color: #aaa;
+  font-size: 9px;
   font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 10px;
+  padding: 1px 7px;
+  border-radius: 8px;
 }
 
-/* ── Grammar card grid ── */
+/* ── Card grid ── */
 .gram-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 8px 0 0;
+  gap: 5px;
 }
 
+/* ── Base card ── */
 .gram-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  border: none;
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 10px;
   min-height: 90px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   cursor: pointer;
   text-align: left;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition: transform 0.1s, filter 0.1s;
 }
 
-.gram-card:active {
-  transform: scale(0.97);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.gram-card:active { transform: scale(0.96); filter: brightness(0.93); }
+
+/* Decorative circle */
+.gram-card::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Bottom accent line */
+.gram-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+  pointer-events: none;
 }
 
 .gram-card-num {
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.5px;
+  line-height: 1;
 }
 
 .gram-card-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 11px;
+  font-weight: 500;
   flex: 1;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .gram-card-suffix {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  color: #888;
-  background: #f2f0ec;
-  border-radius: 4px;
-  padding: 2px 6px;
+  font-size: 9px;
   font-family: monospace;
+  font-weight: 600;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
   align-self: flex-start;
   white-space: nowrap;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* ── Group 0 — Місце і рух (red) ── */
+.gram-grid-g0 .gram-card:nth-child(odd)  { background: #e84c3d; }
+.gram-grid-g0 .gram-card:nth-child(even) { background: #c23020; }
+.gram-grid-g0 .gram-card-num   { color: rgba(255,255,255,0.5); }
+.gram-grid-g0 .gram-card-title { color: #fff; }
+.gram-grid-g0 .gram-card-suffix{ color: rgba(255,255,255,0.55); }
+
+/* ── Group 1 — Дієслова (yellow) ── */
+.gram-grid-g1 .gram-card:nth-child(odd)  { background: #f5c842; }
+.gram-grid-g1 .gram-card:nth-child(even) { background: #d4a800; }
+.gram-grid-g1 .gram-card-num   { color: rgba(0,0,0,0.4); }
+.gram-grid-g1 .gram-card-title { color: #1a1a1a; }
+.gram-grid-g1 .gram-card-suffix{ color: rgba(0,0,0,0.4); }
+.gram-grid-g1 .gram-card::after { background: rgba(0,0,0,0.1); }
+
+/* ── Group 2 — Іменники (blue) ── */
+.gram-grid-g2 .gram-card:nth-child(odd)  { background: #3a6ea5; }
+.gram-grid-g2 .gram-card:nth-child(even) { background: #2a5080; }
+.gram-grid-g2 .gram-card-num   { color: rgba(255,255,255,0.5); }
+.gram-grid-g2 .gram-card-title { color: #fff; }
+.gram-grid-g2 .gram-card-suffix{ color: rgba(255,255,255,0.55); }
+
+/* ── Group 3 — Питання (green) ── */
+.gram-grid-g3 .gram-card:nth-child(odd)  { background: #2a9d5c; }
+.gram-grid-g3 .gram-card:nth-child(even) { background: #1e7a46; }
+.gram-grid-g3 .gram-card-num   { color: rgba(255,255,255,0.5); }
+.gram-grid-g3 .gram-card-title { color: #fff; }
+.gram-grid-g3 .gram-card-suffix{ color: rgba(255,255,255,0.55); }
 
 /* ── Grammar modal ── */
 .gram-modal {
