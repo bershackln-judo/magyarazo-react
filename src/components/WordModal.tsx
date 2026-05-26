@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import type { Verb, Noun, Adjective, SavedWord, AppLang } from '../types'
 import { nl } from '../utils/nl'
 import { getHungarianForms } from '../utils/hungarian'
@@ -23,8 +23,16 @@ function speak(text: string, lang: string) {
 export function WordModal({ word, onClose }: Props) {
   const { lang, t } = useLang()
   const { isSaved, toggleSave } = useSaved()
+  const modalRef = useRef<HTMLDivElement>(null)
 
-  // Close on overlay click
+  // Reset scroll to top every time a new word opens
+  useEffect(() => {
+    if (word && modalRef.current) {
+      modalRef.current.scrollTop = 0
+    }
+  }, [word])
+
+  // Close on Escape key
   useEffect(() => {
     if (!word) return
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
@@ -59,7 +67,7 @@ export function WordModal({ word, onClose }: Props) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={e => e.stopPropagation()}>
+      <div className="modal" ref={modalRef} onClick={e => e.stopPropagation()}>
         <div className="modal-handle" />
         <div className="modal-word">{word.hu}</div>
         <div className="modal-transcription">{'transcription' in word ? word.transcription : ''}</div>
