@@ -2152,8 +2152,311 @@ nav {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 20px 16px 80px;
+  padding: 12px 12px 80px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
+/* ── Grammar sections ── */
+.gram-section {}
+
+.gram-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  border-radius: 8px 8px 0 0;
+}
+
+.gram-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.gram-section-badge {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ── Grammar card grid ── */
+.gram-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 8px 0 0;
+}
+
+.gram-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  padding: 10px 12px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.gram-card:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.gram-card-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.gram-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.gram-card-suffix {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #888;
+  background: #f2f0ec;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: monospace;
+  align-self: flex-start;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Grammar modal ── */
+.gram-modal {
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.gram-modal-header {
+  padding: 13px 14px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.gram-modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.gram-modal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.gram-modal-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.gram-modal-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gram-modal-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255,255,255,0.14);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s;
+}
+
+.gram-modal-close:active { background: rgba(255,255,255,0.25); }
+
+.gram-modal-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 18px 18px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.gram-modal-suffix {
+  display: inline-block;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.gram-modal-section-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+.gram-modal-section-label:first-of-type { margin-top: 0; }
+
+.gram-modal-rule {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Vowel harmony tip */
+.gram-tip-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #fff8e8;
+  border: 1px solid #f5c842;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #7a5800;
+  line-height: 1.5;
+}
+
+.gram-tip-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+
+/* Examples */
+.gram-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gram-example-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  background: #f8f7f4;
+  border-radius: 6px;
+  padding: 7px 10px;
+}
+
+.gram-example-hu {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.gram-example-tr {
+  font-size: 12px;
+  color: #999;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Quiz */
+.gram-quiz-question {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.gram-quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gram-quiz-btn {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: monospace;
+  color: #1a1a1a;
+  cursor: pointer;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.gram-quiz-btn:active { background: #f5f4f0; }
+
+.gram-quiz-btn.correct {
+  background: #e6f9ee;
+  border-color: #2a9d5c;
+  color: #1a5e36;
+  cursor: default;
+}
+
+.gram-quiz-btn.wrong {
+  background: #fdf0ee;
+  border-color: #e84c3d;
+  color: #b0221a;
+  cursor: default;
+}
+
+.gram-quiz-btn.dimmed {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.gram-quiz-result {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.gram-quiz-result.correct { color: #2a9d5c; }
+.gram-quiz-result.wrong   { color: #e84c3d; }

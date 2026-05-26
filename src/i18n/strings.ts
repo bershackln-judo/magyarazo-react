@@ -106,6 +106,12 @@ type StringsShape = {
   home_n_words: (n: number, pl: string) => string
   home_dict_info: (n: number, pl: string) => string
   translating: string
+  gram_rule: string
+  gram_examples: string
+  gram_quiz: string
+  gram_tip_harmony: string
+  gram_correct: string
+  gram_wrong: string
 }
 
 export const STRINGS: Record<AppLang, StringsShape> = {
@@ -215,6 +221,12 @@ export const STRINGS: Record<AppLang, StringsShape> = {
     home_n_words: (n, pl) => `${n} ${pl}`,
     home_dict_info: (n, pl) => `В словаре ${n} ${pl}`,
     translating: 'Перевожу…',
+    gram_rule: 'Правило',
+    gram_examples: 'Примеры',
+    gram_quiz: 'Мини-квиз',
+    gram_tip_harmony: 'Гармония гласных: A, O, U → задний суффикс (-ba, -ban, -ból). E, I, Ö, Ü → передний (-be, -ben, -ből).',
+    gram_correct: 'Правильно! ✓',
+    gram_wrong: 'Неверно — посмотри на правильный ответ',
   },
   uk: {
     tagline: 'Угорська для життя в Угорщині',
@@ -322,5 +334,11 @@ export const STRINGS: Record<AppLang, StringsShape> = {
     home_n_words: (n, pl) => `${n} ${pl}`,
     home_dict_info: (n, pl) => `У словнику ${n} ${pl}`,
     translating: 'Перекладаю…',
+    gram_rule: 'Правило',
+    gram_examples: 'Приклади',
+    gram_quiz: 'Міні-квіз',
+    gram_tip_harmony: 'Гармонія голосних: A, O, U → задній суфікс (-ba, -ban, -ból). E, I, Ö, Ü → передній (-be, -ben, -ből).',
+    gram_correct: 'Правильно! ✓',
+    gram_wrong: 'Невірно — подивись на правильну відповідь',
   },
 }
