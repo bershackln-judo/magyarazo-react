@@ -112,7 +112,11 @@ export function HomeScreen({ onNavigate }: Props) {
             <span className="home-card-arrow">→</span>
             <span className="home-card-title">{t('card_dict')}</span>
             <span className="home-card-sub">
-              {saved.length ? t('home_dict_info').replace ? `${saved.length} ${pluralWords(saved.length, lang)}` : t('card_dict_sub_empty') : t('card_dict_sub_empty')}
+              {saved.length
+                ? (lang === 'uk'
+                    ? `У словнику ${saved.length} ${pluralWords(saved.length, lang)}`
+                    : `В словаре ${saved.length} ${pluralWords(saved.length, lang)}`)
+                : t('card_dict_sub_empty')}
             </span>
           </button>
 

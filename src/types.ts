@@ -26,6 +26,9 @@ export type NounTopic =
   | 'shop'
   | 'docs'
   | 'emotions'
+  | 'transport'
+  | 'health'
+  | 'tech'
 
 export interface Noun {
   topic: NounTopic

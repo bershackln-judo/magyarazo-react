@@ -170,7 +170,7 @@ export function QuizScreen({ onBack }: Props) {
                   </span>
                   <span className="quiz-mode-sub">
                     {m === 'builtin'
-                      ? t('quiz_n_words').replace ? `${builtinCount} ${pluralWords(builtinCount, lang)}` : String(builtinCount)
+                      ? `${builtinCount} ${pluralWords(builtinCount, lang)}`
                       : m === 'saved'
                         ? savedCount ? `${savedCount} ${pluralWords(savedCount, lang)}` : t('quiz_empty')
                         : `${allCount} ${pluralWords(allCount, lang)}`}

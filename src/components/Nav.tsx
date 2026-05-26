@@ -1,3 +1,4 @@
+import { type ReactElement } from 'react'
 import { useLang } from '../contexts/LangContext'
 
 type Screen = 'home' | 'words' | 'assistant' | 'dictionary'
@@ -10,7 +11,7 @@ interface Props {
 export function Nav({ current, onChange }: Props) {
   const { t } = useLang()
 
-  const items: { id: Screen; icon: JSX.Element; labelKey: Parameters<typeof t>[0] }[] = [
+  const items: { id: Screen; icon: ReactElement; labelKey: Parameters<typeof t>[0] }[] = [
     {
       id: 'home',
       labelKey: 'nav_home',

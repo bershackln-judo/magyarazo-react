@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
-import type { Verb, Noun, Adjective, SavedWord } from '../types'
+import type { Verb, Noun, Adjective, SavedWord, AppLang } from '../types'
 import { nl } from '../utils/nl'
 import { getHungarianForms } from '../utils/hungarian'
 import { useLang } from '../contexts/LangContext'
 import { useSaved } from '../contexts/SavedContext'
 
-type AnyWord = Verb | Noun | Adjective
+type AnyWord = Verb | Noun | Adjective | SavedWord
 
 interface Props {
   word: AnyWord | null
@@ -39,8 +39,8 @@ export function WordModal({ word, onClose }: Props) {
   const antonym = 'antonym' in word ? (word as Adjective).antonym : undefined
   const hasAntonym = antonym && antonym.trim() && antonym.trim() !== '—' && antonym.trim() !== '— '
 
-  const forms = 'topic' in word && (word as Noun).topic !== 'adj'
-    ? getHungarianForms(word.hu, lang)
+  const forms = 'topic' in word && !('antonym' in word)
+    ? getHungarianForms(word.hu, lang as AppLang)
     : []
 
   const handleListen = () => speak(word.hu, 'hu-HU')
@@ -50,8 +50,8 @@ export function WordModal({ word, onClose }: Props) {
       hu: word.hu,
       ru: word.ru,
       uk: word.uk,
-      transcription: word.transcription,
-      examples: word.examples,
+      transcription: 'transcription' in word ? (word.transcription as string | undefined) : undefined,
+      examples: 'examples' in word ? word.examples : undefined,
       savedAt: Date.now(),
     }
     toggleSave(sw)
@@ -62,7 +62,7 @@ export function WordModal({ word, onClose }: Props) {
       <div className="modal" onClick={e => e.stopPropagation()}>
         <div className="modal-handle" />
         <div className="modal-word">{word.hu}</div>
-        <div className="modal-transcription">{word.transcription}</div>
+        <div className="modal-transcription">{'transcription' in word ? word.transcription : ''}</div>
         <div className="modal-translation">{translation}</div>
 
         {hasAntonym && (
@@ -101,7 +101,7 @@ export function WordModal({ word, onClose }: Props) {
 
         <div className="modal-examples-title">{t('modal_examples')}</div>
         <div id="modal-examples">
-          {word.examples.map((ex, i) => (
+          {(word.examples ?? []).map((ex, i) => (
             <div key={i} className="modal-example">
               <div className="modal-example-hu">{ex.hu}</div>
               <div className="modal-example-ru">{nl(ex, lang)}</div>
