@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import type { Screen } from '../App'
+import type { Verb, Noun, Adjective } from '../types'
 import { useLang } from '../contexts/LangContext'
 import { useSaved } from '../contexts/SavedContext'
+import { WordModal } from '../components/WordModal'
 import { verbs } from '../data/verbs'
 import { nouns } from '../data/nouns'
 import { adjectives } from '../data/adjectives'
@@ -11,13 +14,23 @@ interface Props {
   onNavigate: (s: Screen) => void
 }
 
+/** Day-of-year index gives 365 distinct words, not just 31 */
+function dayOfYearIndex(len: number): number {
+  const now = new Date()
+  const start = new Date(now.getFullYear(), 0, 0)
+  const diff = now.getTime() - start.getTime()
+  const day  = Math.floor(diff / 86_400_000)
+  return day % len
+}
+
 export function HomeScreen({ onNavigate }: Props) {
   const { lang, setLang, t } = useLang()
   const { saved } = useSaved()
+  const [wodModal, setWodModal] = useState(false)
 
-  const allWords = [...verbs, ...nouns, ...adjectives]
+  const allWords: (Verb | Noun | Adjective)[] = [...verbs, ...nouns, ...adjectives]
   const total = allWords.length
-  const wod = allWords[new Date().getDate() % total]
+  const wod   = allWords[dayOfYearIndex(total)]
 
   function speak() {
     if (!window.speechSynthesis) return
@@ -56,15 +69,15 @@ export function HomeScreen({ onNavigate }: Props) {
           </div>
         </div>
 
-        {/* Word of day */}
-        <div className="home-wod">
+        {/* Word of day — tap card to open full modal */}
+        <div className="home-wod" onClick={() => setWodModal(true)} style={{ cursor: 'pointer' }}>
           <div className="home-wod-deco-red" />
           <div className="home-wod-deco-yellow" />
           <div className="home-wod-label">{t('wod_label')}</div>
           <div className="home-wod-hu">{wod.hu}</div>
           <div className="home-wod-transcription">{wod.transcription}</div>
           <div className="home-wod-ru">{nl(wod, lang)}</div>
-          <button className="home-wod-listen" onClick={speak}>
+          <button className="home-wod-listen" onClick={e => { e.stopPropagation(); speak() }}>
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4z"/>
               <path d="M19 10v2a7 7 0 0 1-14 0v-2" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
@@ -143,6 +156,9 @@ export function HomeScreen({ onNavigate }: Props) {
           </p>
         )}
       </div>
+
+      {/* WoD modal */}
+      <WordModal word={wodModal ? wod : null} onClose={() => setWodModal(false)} />
     </section>
   )
 }
