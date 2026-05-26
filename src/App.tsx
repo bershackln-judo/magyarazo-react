@@ -8,6 +8,7 @@ import { HomeScreen } from './screens/HomeScreen'
 import { WordsScreen } from './screens/WordsScreen'
 import { AssistantScreen } from './screens/AssistantScreen'
 import { DictionaryScreen } from './screens/DictionaryScreen'
+import { QuizScreen } from './screens/QuizScreen'
 
 export type Screen = 'home' | 'words' | 'assistant' | 'dictionary' | 'quiz'
 
@@ -22,6 +23,7 @@ export default function App() {
       case 'words':      return <WordsScreen />
       case 'assistant':  return <AssistantScreen />
       case 'dictionary': return <DictionaryScreen />
+      case 'quiz':       return <QuizScreen onBack={() => setScreen('home')} />
       default:           return <HomeScreen onNavigate={setScreen} />
     }
   }
@@ -34,7 +36,7 @@ export default function App() {
         <main>
           {renderScreen()}
         </main>
-        <Nav current={navScreen} onChange={setScreen} />
+        {screen !== 'quiz' && <Nav current={navScreen} onChange={setScreen} />}
       </SavedContext.Provider>
     </LangContext.Provider>
   )
