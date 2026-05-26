@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react'
 import { useLang } from '../contexts/LangContext'
 
-type Screen = 'home' | 'words' | 'assistant' | 'dictionary'
+type Screen = 'home' | 'words' | 'assistant' | 'dictionary' | 'grammar'
 
 interface Props {
   current: Screen
@@ -52,6 +52,16 @@ export function Nav({ current, onChange }: Props) {
           <path d="M4 19V5a2 2 0 012-2h13a1 1 0 011 1v14"/>
           <path d="M4 19a2 2 0 002 2h13a1 1 0 001-1v-1"/>
           <path d="M8 7h8M8 11h5"/>
+        </svg>
+      ),
+    },
+    {
+      id: 'grammar',
+      labelKey: 'nav_grammar',
+      icon: (
+        <svg viewBox="0 0 24 24">
+          <path d="M2 19l7-7 4 4L20 5"/>
+          <path d="M18 5h3M18 9h3M18 13h2"/>
         </svg>
       ),
     },

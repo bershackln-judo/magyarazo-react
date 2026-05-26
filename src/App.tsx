@@ -9,8 +9,9 @@ import { WordsScreen } from './screens/WordsScreen'
 import { AssistantScreen } from './screens/AssistantScreen'
 import { DictionaryScreen } from './screens/DictionaryScreen'
 import { QuizScreen } from './screens/QuizScreen'
+import { GrammarScreen } from './screens/GrammarScreen'
 
-export type Screen = 'home' | 'words' | 'assistant' | 'dictionary' | 'quiz'
+export type Screen = 'home' | 'words' | 'assistant' | 'dictionary' | 'quiz' | 'grammar'
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('home')
@@ -24,11 +25,12 @@ export default function App() {
       case 'assistant':  return <AssistantScreen />
       case 'dictionary': return <DictionaryScreen />
       case 'quiz':       return <QuizScreen onBack={() => setScreen('home')} />
+      case 'grammar':    return <GrammarScreen />
       default:           return <HomeScreen onNavigate={setScreen} />
     }
   }
 
-  const navScreen = (screen === 'quiz' ? 'home' : screen) as 'home' | 'words' | 'assistant' | 'dictionary'
+  const navScreen = (screen === 'quiz' ? 'home' : screen) as 'home' | 'words' | 'assistant' | 'dictionary' | 'grammar'
 
   return (
     <LangContext.Provider value={langCtx}>

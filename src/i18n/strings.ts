@@ -15,6 +15,7 @@ type StringsShape = {
   nav_words: string
   nav_asst: string
   nav_dict: string
+  nav_grammar: string
   words_title: string
   tab_verbs: string
   tab_nouns: string
@@ -123,6 +124,7 @@ export const STRINGS: Record<AppLang, StringsShape> = {
     nav_words: 'Слова',
     nav_asst: 'Помощник',
     nav_dict: 'Словарь',
+    nav_grammar: 'Граматика',
     words_title: 'Слова · Szavak',
     tab_verbs: 'Глаголы',
     tab_nouns: 'Существительные',
@@ -229,6 +231,7 @@ export const STRINGS: Record<AppLang, StringsShape> = {
     nav_words: 'Слова',
     nav_asst: 'Помічник',
     nav_dict: 'Словник',
+    nav_grammar: 'Граматика',
     words_title: 'Слова · Szavak',
     tab_verbs: 'Дієслова',
     tab_nouns: 'Іменники',
