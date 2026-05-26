@@ -31,6 +31,11 @@ body {
   background: var(--bg);
   color: var(--graphite);
   height: 100dvh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -38,6 +43,7 @@ body {
 
 main {
   flex: 1;
+  min-height: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -47,10 +53,11 @@ main {
 .screen {
   display: none;
   flex: 1;
+  min-height: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 24px 24px 70px;
   overflow-y: auto;
 }
 
@@ -81,7 +88,7 @@ main {
 #screen-verbs {
   align-items: stretch;
   justify-content: flex-start;
-  padding: 0;
+  padding: 0 0 70px;
 }
 
 .verbs-header {
@@ -183,6 +190,7 @@ main {
   align-items: stretch;
   justify-content: flex-start;
   padding: 0;
+  overflow: hidden;
 }
 
 /* ── Home screen ── */
@@ -192,9 +200,11 @@ main {
 
 .home-body {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  padding-bottom: 70px;
 }
 
 /* Top bar */
@@ -447,7 +457,7 @@ main {
 #screen-nouns {
   align-items: stretch;
   justify-content: flex-start;
-  padding: 0;
+  padding: 0 0 70px;
   background: #f2f0ec;
 }
 
@@ -483,6 +493,7 @@ main {
   align-items: stretch;
   justify-content: flex-start;
   padding: 0;
+  overflow: hidden;
 }
 
 .asst-header {
@@ -499,8 +510,9 @@ main {
 
 .asst-body {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
-  padding: 28px 16px 16px;
+  padding: 28px 16px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1176,7 +1188,7 @@ main {
 #screen-dictionary {
   align-items: stretch;
   justify-content: flex-start;
-  padding: 0;
+  padding: 0 0 70px;
 }
 
 .dict-header {
@@ -2068,11 +2080,15 @@ main {
 
 /* ── Bottom nav ── */
 nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   height: 56px;
   background: var(--c-black);
   display: flex;
   align-items: stretch;
-  flex-shrink: 0;
 }
 
 .nav-btn {
