@@ -2232,8 +2232,7 @@ nav {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #fff;
-  opacity: 0.25;
+  background: rgba(255,255,255,0.2);
   pointer-events: none;
 }
 
@@ -2277,34 +2276,34 @@ nav {
   text-overflow: ellipsis;
 }
 
-/* ── Group 0 — Місце і рух (red) ── */
-.gram-grid-g0 .gram-card:nth-child(odd)  { background: #e84c3d; }
-.gram-grid-g0 .gram-card:nth-child(even) { background: #c23020; }
-.gram-grid-g0 .gram-card-num   { color: rgba(255,255,255,0.5); }
-.gram-grid-g0 .gram-card-title { color: #fff; }
-.gram-grid-g0 .gram-card-suffix{ color: rgba(255,255,255,0.55); }
+/* ── Group 0 — Місце і рух (muted blue) ── */
+.gram-grid-g0 .gram-card:nth-child(odd)  { background: #8fafd4; }
+.gram-grid-g0 .gram-card:nth-child(even) { background: #7a9ec8; }
+.gram-grid-g0 .gram-card-num   { color: rgba(26,42,58,0.5); }
+.gram-grid-g0 .gram-card-title { color: #1a2a3a; }
+.gram-grid-g0 .gram-card-suffix{ color: rgba(26,42,58,0.65); }
 
-/* ── Group 1 — Дієслова (yellow) ── */
-.gram-grid-g1 .gram-card:nth-child(odd)  { background: #f5c842; }
-.gram-grid-g1 .gram-card:nth-child(even) { background: #d4a800; }
-.gram-grid-g1 .gram-card-num   { color: rgba(0,0,0,0.4); }
-.gram-grid-g1 .gram-card-title { color: #1a1a1a; }
-.gram-grid-g1 .gram-card-suffix{ color: rgba(0,0,0,0.4); }
-.gram-grid-g1 .gram-card::after { background: rgba(0,0,0,0.1); }
+/* ── Group 1 — Дієслова (muted gold) ── */
+.gram-grid-g1 .gram-card:nth-child(odd)  { background: #c8a84b; }
+.gram-grid-g1 .gram-card:nth-child(even) { background: #b89438; }
+.gram-grid-g1 .gram-card-num   { color: rgba(42,26,0,0.5); }
+.gram-grid-g1 .gram-card-title { color: #2a1a00; }
+.gram-grid-g1 .gram-card-suffix{ color: rgba(42,26,0,0.65); }
+.gram-grid-g1 .gram-card::after { background: rgba(42,26,0,0.12); }
 
-/* ── Group 2 — Іменники (blue) ── */
-.gram-grid-g2 .gram-card:nth-child(odd)  { background: #3a6ea5; }
-.gram-grid-g2 .gram-card:nth-child(even) { background: #2a5080; }
-.gram-grid-g2 .gram-card-num   { color: rgba(255,255,255,0.5); }
-.gram-grid-g2 .gram-card-title { color: #fff; }
-.gram-grid-g2 .gram-card-suffix{ color: rgba(255,255,255,0.55); }
+/* ── Group 2 — Іменники (muted green) ── */
+.gram-grid-g2 .gram-card:nth-child(odd)  { background: #7ab896; }
+.gram-grid-g2 .gram-card:nth-child(even) { background: #6aa882; }
+.gram-grid-g2 .gram-card-num   { color: rgba(10,42,24,0.5); }
+.gram-grid-g2 .gram-card-title { color: #0a2a18; }
+.gram-grid-g2 .gram-card-suffix{ color: rgba(10,42,24,0.65); }
 
-/* ── Group 3 — Питання (green) ── */
-.gram-grid-g3 .gram-card:nth-child(odd)  { background: #2a9d5c; }
-.gram-grid-g3 .gram-card:nth-child(even) { background: #1e7a46; }
-.gram-grid-g3 .gram-card-num   { color: rgba(255,255,255,0.5); }
-.gram-grid-g3 .gram-card-title { color: #fff; }
-.gram-grid-g3 .gram-card-suffix{ color: rgba(255,255,255,0.55); }
+/* ── Group 3 — Питання (muted purple) ── */
+.gram-grid-g3 .gram-card:nth-child(odd)  { background: #b89ac8; }
+.gram-grid-g3 .gram-card:nth-child(even) { background: #a888bc; }
+.gram-grid-g3 .gram-card-num   { color: rgba(26,10,42,0.5); }
+.gram-grid-g3 .gram-card-title { color: #1a0a2a; }
+.gram-grid-g3 .gram-card-suffix{ color: rgba(26,10,42,0.65); }
 
 /* ── Grammar modal ── */
 .gram-modal {
