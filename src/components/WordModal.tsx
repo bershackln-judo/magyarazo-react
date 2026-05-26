@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import type { Verb, Noun, Adjective, SavedWord, AppLang } from '../types'
 import { nl } from '../utils/nl'
 import { getHungarianForms } from '../utils/hungarian'
@@ -65,7 +66,7 @@ export function WordModal({ word, onClose }: Props) {
     toggleSave(sw)
   }
 
-  return (
+  return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" ref={modalRef} onClick={e => e.stopPropagation()}>
         <div className="modal-handle" />
@@ -122,6 +123,7 @@ export function WordModal({ word, onClose }: Props) {
           <span>{saved ? t('saved_in_dict') : t('save_to_dict')}</span>
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
