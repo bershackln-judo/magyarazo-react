@@ -1,5 +1,5 @@
 /* Magyarázó Service Worker — offline-first for static assets */
-const CACHE = 'magyarazo-v1'
+const CACHE = 'magyarazo-v2'
 
 /* On install: cache the app shell */
 self.addEventListener('install', event => {
@@ -28,8 +28,9 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url)
 
-  /* Skip non-GET and cross-origin API calls */
+  /* Skip non-GET, the SW file itself, and cross-origin API calls */
   if (event.request.method !== 'GET') return
+  if (url.pathname === '/sw.js') return
   if (
     url.hostname.includes('generativelanguage.googleapis.com') ||
     url.pathname.startsWith('/api/')
