@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './style.css'
 import App from './App.tsx'
 
-// Register service worker for offline/PWA support
+// Unregister any old service workers so stale cache never blocks updates
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {/* ignore SW errors */})
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    regs.forEach(r => r.unregister())
   })
 }
 
