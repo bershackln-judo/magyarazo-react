@@ -16,32 +16,33 @@
 - Green: #2a9d5c
 
 ## Screens Status
-- [ ] Home — Bauhaus done
+- [x] Home — Bauhaus done
 - [ ] Words (Nouns) — partial
 - [ ] Assistant — old design
 - [ ] Dictionary — old design
 - [ ] Flashcards — old design
-- [ ] Grammar — screen exists, cards not added
+- [x] Grammar — 20 cards live, Bauhaus design, RU/UK i18n
 
 ## Last Done
 <!-- UPDATE THIS EVERY SESSION -->
-- 
+- React Portal for modal centering ✅
+- Word cards click handler fixed ✅
+- 20 grammar cards added with quiz + RU/UK i18n ✅
+- RU/UK language toggle (full i18n) ✅
+- Noun category tabs fixed (transport, health, tech) ✅
+- Duplicate nouns cleaned up (214 unique nouns) ✅
 
 ## Known Bugs
 <!-- UPDATE THIS EVERY SESSION -->
-- Modal window not centered (needs React Portal)
-- Word cards click handler issues
+- Adjectives list has ~12 duplicate entries across topic groups
 
 ## TODO (priority order)
 1. Bauhaus redesign: Assistant, Dictionary, Flashcards screens
-2. Fix modal centering with React Portal
-3. Add 20 grammar cards (content ready, see below)
-4. Expand dictionary to 1000 words
-5. RU/UK language toggle (i18n)
-6. Days streak on home screen
-7. Flashcard progress system
-8. Push notifications — word of the day
-9. 100+ situational phrases and dialogues
+2. Expand dictionary to 1000 words
+3. Days streak on home screen
+4. Flashcard progress system
+5. Push notifications — word of the day
+6. 100+ situational phrases and dialogues
 
 ## Grammar Cards (20 total, content ready)
 
